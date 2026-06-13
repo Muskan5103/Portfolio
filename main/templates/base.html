@@ -1,0 +1,170 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+
+<body>
+    <div id="loader">
+    <div class="loader-content">
+
+        <h1 class="loader-logo">Muskan</h1>
+<p>Full Stack Django Developer</p>
+
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+
+        <p>Loading Portfolio...</p>
+
+    </div>
+</div>
+
+</div>
+<div class="cursor"></div>
+<div class="cursor-blur"></div>
+    <!-- Navbar -->
+<nav>
+
+    <h1 class="logo">Portfolio</h1>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <ul id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blogs</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+ {% if messages %}
+        {% for message in messages %}
+        <div class="success-message" id="success-message">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    <!-- Main Content -->
+
+    {% block content %}
+
+    {% endblock %}
+<script>
+
+    setTimeout(() => {
+
+        const message = document.getElementById('success-message');
+
+        if(message){
+            message.classList.add('fade-out');
+        }
+
+    }, 3000);
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+
+var typed = new Typed("#typed", {
+
+    strings: [
+        "Full Stack Developer",
+        "Django Developer",
+        "Frontend Designer",
+        "Python Developer",
+        "AI/ML Enthusiast"
+    ],
+
+    typeSpeed: 80,
+    backSpeed: 50,
+    backDelay: 1500,
+    loop: true
+
+});
+
+</script>
+<script>
+const counterSection = document.querySelector('.counter-container');
+const counters = document.querySelectorAll('.counter');
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            counters.forEach(counter => {
+
+                counter.innerText = "0";
+
+                const target = +counter.dataset.target;
+                let count = 0;
+                const speed = target / 100;
+
+                const updateCounter = () => {
+
+                    if (count < target) {
+                        count += speed;
+                        counter.innerText = Math.ceil(count) + '+';
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target + '+';
+                    }
+                };
+
+                updateCounter();
+            });
+
+        } else {
+
+            counters.forEach(counter => {
+                counter.innerText = "0";
+            });
+
+        }
+
+    });
+
+}, {
+    threshold: 0.6
+});
+
+observer.observe(counterSection);
+</script>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+<div id="certificateModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close-btn" onclick="closeCertificate()">&times;</span>
+
+        <img id="certificateImage" src="" alt="Certificate">
+
+    </div>
+
+</div>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+    AOS.init({
+        duration: 1000,
+        once: false
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="blog-detail">
+
+    <div class="blog-detail-container">
+
+        <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+
+        <h1>{{ blog.title }}</h1>
+
+        <p class="blog-date">
+            Published on {{ blog.created_at|date:"F d, Y" }}
+        </p>
+
+        <div class="blog-content">
+
+            {{ blog.content|linebreaks }}
+
+        </div>
+
+        <a href="/#blog" class="back-btn">
+            ← Back to Blogs
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

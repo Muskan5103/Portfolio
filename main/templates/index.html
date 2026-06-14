@@ -360,7 +360,23 @@
                 '{{ project.demo_link }}'
              )">
 
-            <img src="{{ project.image.url }}" alt="">
+            <!-- <img src="{{ project.image.url }}" alt=""> -->
+            
+          {% if project.title == "Heart Care" %}
+    <img src="{% static 'images/hc.jpg' %}" alt="Heart Care">
+
+{% elif project.title == "Loan Prediction" %}
+    <img src="{% static 'images/lp.jpg' %}" alt="Loan Prediction">
+
+{% elif project.title == "Travel Equipment Store- Trek Ready" %}
+    <img src="{% static 'images/travel.webp' %}" alt="Travel Website">
+
+{% elif project.title == "Cafe-Brew and Bloom" %}
+    <img src="{% static 'images/cafee.jpg' %}" alt="Cafe-Brew and Bloom">
+
+{% endif %}
+
+            
           
 
             <div class="project-content">

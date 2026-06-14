@@ -1,12 +1,12 @@
 from django.db import models
-from cloudinary.models import CloudinaryField
+
 class Project(models.Model):
 
     title = models.CharField(max_length=100)
 
     description = models.TextField()
 
-    image = CloudinaryField('image')
+    image = models.ImageField(upload_to='projects/')
 
     github_link = models.URLField()
 
@@ -36,7 +36,7 @@ class Contact(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
-    image = CloudinaryField('image')
+    image = models.ImageField(upload_to='blogs/')
     short_description = models.CharField(max_length=300)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)

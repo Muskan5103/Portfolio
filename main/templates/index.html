@@ -515,23 +515,33 @@
 
         {% for blog in blogs %}
 
-        <div class="blog-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
+    {% if blog.title == "How I Built My Portfolio Website Using Django" %}
+        {% static "images/pff.jpg" as blog_img %}
 
-            <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+    {% elif blog.title == "Building a Cafe Management Website – Brew and Bloom" %}
+        {% static "images/cf.jpg" as blog_img %}
 
-            <div class="blog-info">
+    {% elif blog.title == "Getting Started with Machine Learning Using Python" %}
+        {% static "images/ml.jpg" as blog_img %}
 
-                <h3>{{ blog.title }}</h3>
+    {% elif blog.title == "Building a Travel Equipment Store Using Django" %}
+        {% static "images/tll.jpg" as blog_img %}
+    {% endif %}
 
-                <p>{{ blog.short_description }}</p>
+    <div class="blog-card">
+        <img src="{{ blog_img }}" alt="{{ blog.title }}">
 
-                <a href="{% url 'blog_detail' blog.slug %}" class="blog-btn">
-                    Read More →
-                </a>
+        <div class="blog-info">
+            <h3>{{ blog.title }}</h3>
+            <p>{{ blog.short_description }}</p>
 
-            </div>
-
+            <a href="{% url 'blog_detail' blog.slug %}" class="blog-btn">
+                Read More →
+            </a>
         </div>
+    </div>
+
+
 
         {% empty %}
 

@@ -61,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 import cloudinary
 
 cloudinary.config(
@@ -70,6 +70,10 @@ cloudinary.config(
     api_secret=os.getenv("CLOUDINARY_API_SECRET"),
     secure=True
 )
+
+print("CLOUD NAME:", os.getenv("CLOUDINARY_CLOUD_NAME"))
+print("API KEY:", os.getenv("CLOUDINARY_API_KEY"))
+print("DEFAULT STORAGE:", DEFAULT_FILE_STORAGE if 'DEFAULT_FILE_STORAGE' in globals() else "Not Set Yet")
 
 ROOT_URLCONF = 'portfolio.urls'
 
@@ -167,4 +171,3 @@ else:
         }
     }
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

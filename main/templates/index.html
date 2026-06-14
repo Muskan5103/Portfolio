@@ -16,9 +16,9 @@
             Muskan
         </h1>
 
-        
+
         <h3 class="typing-text">
-            Creative 
+            Creative
             <span id="typed">
 
             </span>
@@ -351,33 +351,42 @@
     <div class="projects-container">
 
         {% for project in projects %}
+        {% if project.title == "Heart Care" %}
+        {% static "images/hc.jpg" as project_img %}
+        {% elif project.title == "Loan Prediction" %}
+        {% static "images/lp.jpg" as project_img %}
+        {% elif project.title == "Travel Equipment Store- Trek Ready" %}
+        {% static "images/travel.webp" as project_img %}
+        {% elif project.title == "Cafe-Brew and Bloom" %}
+        {% static "images/cafe.jpg" as project_img %}
+        {% endif %}
 
         <div class="project-card" data-aos="zoom-in-up" onclick="openModal(
-                '{{ project.title|escapejs }}',
-                '{{ project.description|escapejs }}',
-                '{{ project.image.url }}',
-                '{{ project.github_link }}',
-                '{{ project.demo_link }}'
-             )">
+    '{{ project.title|escapejs }}',
+    '{{ project.description|escapejs }}',
+ '{{ project_img }}',
+    '{{ project.github_link }}',
+    '{{ project.demo_link }}'
+)">
 
             <!-- <img src="{{ project.image.url }}" alt=""> -->
-            
-          {% if project.title == "Heart Care" %}
-    <img src="{% static 'images/hc.jpg' %}" alt="Heart Care">
 
-{% elif project.title == "Loan Prediction" %}
-    <img src="{% static 'images/lp.jpg' %}" alt="Loan Prediction">
+            {% if project.title == "Heart Care" %}
+            <img src="{% static 'images/hc.jpg' %}" alt="Heart Care">
 
-{% elif project.title == "Travel Equipment Store- Trek Ready" %}
-    <img src="{% static 'images/travel.webp' %}" alt="Travel Website">
+            {% elif project.title == "Loan Prediction" %}
+            <img src="{% static 'images/lp.jpg' %}" alt="Loan Prediction">
 
-{% elif project.title == "Cafe-Brew and Bloom" %}
-    <img src="{% static 'images/cafee.jpg' %}" alt="Cafe-Brew and Bloom">
+            {% elif project.title == "Travel Equipment Store- Trek Ready" %}
+            <img src="{% static 'images/travel.webp' %}" alt="Travel Website">
 
-{% endif %}
+            {% elif project.title == "Cafe-Brew and Bloom" %}
+            <img src="{% static 'images/cafee.jpg' %}" alt="Cafe-Brew and Bloom">
 
-            
-          
+            {% endif %}
+
+
+
 
             <div class="project-content">
                 <h2>{{ project.title }}</h2>
@@ -506,9 +515,7 @@
 
         {% for blog in blogs %}
 
-        <div class="blog-card"
-             data-aos="fade-up"
-             data-aos-delay="{{ forloop.counter|add:'1' }}00">
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
 
             <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
 

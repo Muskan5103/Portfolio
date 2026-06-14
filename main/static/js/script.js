@@ -34,7 +34,7 @@ function openModal(title, description, image, github, demo){
 
     console.log("TITLE:", title);
     console.log("DESCRIPTION:", description);
-
+console.log("IMAGE:", image);
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalDescription").innerText = description;
 

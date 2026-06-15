@@ -1,34 +1,40 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    const skillsSection = document.getElementById("skills");
-const progressBars = document.querySelectorAll(".progress");
+    const cards = document.querySelectorAll(".skill-card");
 
-const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry => {
+        entries.forEach(entry => {
 
-        if (entry.isIntersecting) {
-            progressBars.forEach(bar => {
-                bar.classList.add("animate");
-            });
-        } else {
-            progressBars.forEach(bar => {
-                bar.classList.remove("animate");
-            });
-        }
+            const progress = entry.target.querySelector(".progress");
 
+            if (entry.isIntersecting) {
+
+                progress.style.transition = "none";
+                progress.classList.remove("animate");
+
+                // Force browser reflow
+                void progress.offsetWidth;
+
+                progress.style.transition = "width 2s ease-in-out";
+
+                setTimeout(() => {
+                    progress.classList.add("animate");
+                }, 50);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.3
     });
 
-}, {
-    threshold: 0.5
-});
-
-observer.observe(skillsSection);
+    cards.forEach(card => observer.observe(card));
 
 });
-
-
-
 
 function openModal(title, description, image, github, demo){
 

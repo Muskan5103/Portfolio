@@ -609,54 +609,37 @@ html{
     margin-bottom: 25px;
 }
 
+
+
 .progress-bar{
-    width: 100%;
-    height: 10px;
-
-    background-color: #1e293b;
-
-    border-radius: 10px;
-
-    overflow: hidden;
-
-    margin-bottom: 15px;
+    width:100%;
+    height:10px;
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:15px;
 }
 
 .progress{
-    height: 100%;
-    background-color: #38bdf8;
-    border-radius: 10px;
+    width:0;
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,#00f5ff,#00ff88);
+    transition:width 2s ease-in-out;
 }
 
-/* Skill Widths */
-
-.html{
-    width: 95%;
-}
-
-.css{
-    width: 90%;
-}
-
-.js{
-    width: 85%;
-}
-
-.python{
-    width: 90%;
-}
-
-.db{
-    width: 80%;
-}
-
-.django{
-    width: 88%;
-}
-
+/* Final widths */
+.progress.html.animate{ width:95%; }
+.progress.css.animate{ width:90%; }
+.progress.js.animate{ width:85%; }
+.progress.python.animate{ width:90%; }
+.progress.db.animate{ width:80%; }
+.progress.django.animate{ width:88%; }
+.progress.aiml.animate{ width:75%; }
+.progress.dsa.animate{ width:82%; }
 .skill-card span{
-    color: #38bdf8;
-    font-weight: bold;
+    color:#38bdf8;
+    font-weight:bold;
 }
 /* Projects Section */
 
@@ -664,14 +647,7 @@ html{
     padding: 100px 10%;
     background-color: #0f172a;
 }
-/* projects-container{
-    display: grid;
 
-    grid-template-columns:
-    repeat(auto-fit, minmax(320px, 1fr));
-
-    gap: 40px;
-}  */
  .projects-container{
     display: grid;
 
@@ -915,55 +891,10 @@ footer h2{
     font-size:20px;
 }
 
-.progress-bar {
-    width: 100%;
-    height: 10px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.progress {
-    height: 100%;
-    width: 0;
-    border-radius: 20px;
-    background: linear-gradient(90deg,#00f5ff,#00ff88);
-    transition: width 2s ease-in-out;
-}
 
 /* Final widths after animation */
 
-.progress.html.animate {
-    width: 95%;
-}
 
-.progress.css.animate {
-    width: 90%;
-}
-
-.progress.js.animate {
-    width: 85%;
-}
-
-.progress.python.animate {
-    width: 90%;
-}
-
-.progress.db.animate {
-    width: 80%;
-}
-
-.progress.django.animate {
-    width: 88%;
-}
-
-.progress.aiml.animate {
-    width: 75%;
-}
-
-.progress.dsa.animate {
-    width: 82%;
-}
 .skill-card {
     
     transform: translateY(40px);

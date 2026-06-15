@@ -28,7 +28,8 @@ def home(request):
             subject=subject,
             message=message
         )
-
+        print("EMAIL USER:", settings.EMAIL_HOST_USER)
+        print("PASSWORD EXISTS:", bool(settings.EMAIL_HOST_PASSWORD))
         email_message = EmailMessage(
             subject=f"New Portfolio Inquiry from {name}",
             body=f"""

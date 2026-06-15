@@ -101,14 +101,12 @@ Message:
             )
 
             email_message.send(fail_silently=False)
-
-            print("EMAIL SENT SUCCESSFULLY")
+            print("EMAIL SENT")
 
         except Exception as e:
-            print("EMAIL ERROR:", repr(e))
+            print("EMAIL ERROR:", str(e))
 
         messages.success(request, "Message Sent Successfully!")
-
         return redirect('/')
 
     context = {

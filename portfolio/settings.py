@@ -171,3 +171,4 @@ else:
         }
     }
 
+EMAIL_TIMEOUT = 10
